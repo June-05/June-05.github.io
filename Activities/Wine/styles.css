@@ -1,0 +1,78 @@
+/* Styles by MANLA, Jun Mari S. */
+
+:root {
+    --ink-black: #000814ff;
+    --prussian-blue: #001d3dff;
+    --regal-navy: #003566ff;
+    --school-bus-yellow: #ffc300ff;
+    --gold: #ffd60aff;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./Fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'FleurDeLeah';
+    src: url('./Fonts/FleurDeLeah-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoMono';
+    src: url('./Fonts/RobotoMono-Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background-color: var(--regal-navy);
+}
+
+h1{
+    font-family: 'FleurDeLeah';
+    font-size: clamp(5rem, 8vw + 1rem, 10rem);
+    padding: 30px;
+    color: var(--gold);
+}
+
+h2{
+    font-family: 'RobotoMono';
+    font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--school-bus-yellow);
+    background-color: var(--prussian-blue);
+}
+
+td{
+    font-family: 'Roboto';
+    padding: 20px;
+    text-align: left;
+    font-size: clamp(1rem, 2vw + 1rem, 3rem);
+    background-color: var(--school-bus-yellow);
+    color: var(--prussian-blue);
+}
+
+th{
+    text-align: center;
+    
+}
+
+.left {
+    font-family: 'RobotoMono';
+    text-align: right;
+}
+
+
+
+table {
+    margin: 0 auto;
+    
+}
+
