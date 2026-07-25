@@ -27,7 +27,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 body{
@@ -59,20 +58,12 @@ td{
     color: var(--prussian-blue);
 }
 
-th{
-    text-align: center;
-    
-}
-
 .left {
     font-family: 'RobotoMono';
     text-align: right;
 }
 
-
-
 table {
-    margin: 0 auto;
-    
+    margin: 1% auto;
 }
 
