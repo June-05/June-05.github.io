@@ -1,0 +1,365 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 10vh;
+}
+
+
+/* FONTS */
+h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw + 1rem, 4rem);
+}
+
+h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+}
+
+h3 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
+}
+
+h4 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1rem, 1.5vw + 1rem, 1.5rem);
+}
+
+p, li{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1rem, 1.5vw + 1rem, 1.5rem);
+}
+
+li {
+    margin-left: 2rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.big {
+    font-size: 3vw;
+    margin: 0 0px;
+    padding: 0 0px;
+    text-align: left;
+}
+
+.huge {
+    font-size: 6vw;
+    margin: 0 0px;
+    padding: 0 0px;
+    text-align: left;
+}
+
+.medium {
+    font-size: 2vw;
+    margin: 2vw 0px;
+    padding: 1vw 1vw;
+    text-align: left;
+}
+
+
+body {
+    top: 10vh;
+    position: relative;
+}
+
+header {
+    font-size: 3vw;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0% 5%;
+    top: 0;
+    width: 100%;
+    height: 10%;
+    background-color: #333;
+    z-index: 100;
+}
+
+header a {
+    color: white;
+    width: 100%;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+header img {
+    max-height: 10vh;
+    width: auto;
+    object-fit: contain;
+}
+
+h1 {
+    margin: 10px 20px;
+}
+
+#cert-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: bottom;
+    gap: 20px;
+    padding: 20px;
+}
+
+.cert {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1%;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.cert:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+.cert:focus {
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+.cert:focus + .details {
+    display: block;
+    margin: 0 auto;
+}
+
+.details {
+    display: none;
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.details a {
+    color: #00f;
+    text-decoration: underline;
+}
+
+.activity {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    gap: 20px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.activity img {
+    display: block;
+    width: 30%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+
+.activity-details {
+    position: relative;
+    line-height: 1.5;
+    padding-bottom: 3rem;
+    padding-left: 3rem;    
+}
+
+.activity-details button,
+.project-details button {
+    position: absolute;
+    bottom: 0%;
+    line-height: 0;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-details .top{
+    bottom: 4rem;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    anchor-scope: --tooltip-anchor;
+}
+
+.project-desc {
+    padding: 20px;
+    line-height: 1.5;
+    padding-left: 1rem;
+}
+
+.project-details {
+    position: relative;
+    line-height: 1.5;
+    border-left: 1px solid #ccc;
+    padding-left: 1rem;
+}
+
+
+
+.carousel {
+    grid-column: span 2;
+
+    anchor-name: --tooltip-anchor;
+    
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    /* Buttons from https://developer.chrome.com/blog/carousels-with-css#meet_scroll-button_and_scroll-marker */
+    &::scroll-button(*) {
+        position: absolute;
+        border-radius: 100%;
+        width: 4rem;
+        font-size: 3rem;
+        aspect-ratio: 1/1;
+        position-anchor: --tooltip-anchor;
+        position-area: center;
+    }
+
+    &::scroll-button(left) {
+        content: "<" / "Scroll Left";
+        left: calc(anchor(left) - 2%);
+    }
+
+    &::scroll-button(right) {
+        content: ">" / "Scroll Right";
+        right: calc(anchor(right) - 2%);
+    }
+
+    &::scroll-button(*):focus-visible {
+        outline-offset: 5px;
+    }
+
+    /* scroll-marker-group: after; */
+}
+
+.carousel [role="list"] {
+    padding: 0;
+    list-style: none;
+}
+
+.carousel-media {
+    display: flex;
+}
+
+.carousel-item {
+    padding: 0 30px;
+    height: 40vh;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+
+    /* ::scroll-marker {
+        content: 'O' / "O";
+    }
+
+    ::scroll-marker:target-current {
+    background: var(red);
+  } */
+}
+
+.carousel-item:first-of-type {
+    /* Allow users to fully scroll to the start */
+    scroll-snap-align: start;
+}
+.carousel-item:last-of-type {
+    /* Allow users to fully scroll to the end */
+    scroll-snap-align: end;
+}
+
+.carousel-item > *,
+.carousel-item :is(picture, figure, img, gif) {
+    height: 100%;
+}
+
+.carousel-item img {
+    display: block;
+    width: auto;
+}
+
+.no-scrollbar {
+    /* Safari, Chrome, and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    /* Firefox */
+    scrollbar-width: none;
+    /* IE and Edge */
+    -ms-overflow-style: none;
+}
+
+#landing-page {
+    height: 90vh;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+
+#landing-page img {
+    object-fit: cover;
+    height: 80%;
+    max-width: 100%;
+    z-index: 5;
+    justify-self: end;
+}
+
+.introduction {
+    margin-top: 10%;
+}
+
+.introduction a {
+    width: 10vw;
+    position: absolute;
+    left: 50%;
+    top: 70vh;
+    animation: jumpInfinite 1.5s infinite;
+}
+
+@keyframes jumpInfinite {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 20px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
