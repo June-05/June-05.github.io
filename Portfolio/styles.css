@@ -25,7 +25,7 @@
 h1 {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(2rem, 4vw + 1rem, 4rem);
+    font-size: clamp(1.7rem, 3vw + 0.9rem, 3.3rem);
     margin: 10px 20px;
     color: var(--dark-blue);
 }
@@ -33,21 +33,21 @@ h1 {
 h2 {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+    font-size: clamp(1.35rem, 2.4vw + 0.85rem, 2.5rem);
     color: var(--dark-blue);
 }
 
 h3 {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
+    font-size: clamp(1.1rem, 1.7vw + 0.85rem, 1.75rem);
     color: var(--dark-blue);
 }
 
 h4 {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(1rem, 1.5vw + 1rem, 1.5rem);
+    font-size: clamp(1rem, 1vw + 0.8rem, 1.35rem);
     color: var(--dark-blue);
 }
 
@@ -55,7 +55,7 @@ p,
 li {
     font-family: var(--font-body);
     font-weight: 400;
-    font-size: clamp(0.5rem, 1.5vw + 0.4rem, 1.2rem);
+    font-size: clamp(0.9rem, 0.55vw + 0.82rem, 1.05rem);
     color: var(--black);
 }
 
@@ -99,6 +99,8 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
 
 a,
@@ -149,6 +151,7 @@ header img {
     grid-template-columns: 2fr 5fr;
     overflow: hidden;
     background-color: var(--white);
+    scroll-snap-align: start;
 }
 
 #landing-page img {
@@ -190,6 +193,7 @@ header img {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     align-items: space-between;
+    scroll-snap-align: start;
 }
 
 /* Uses the already exisiting carousel from the projects tab with a few modifications */
@@ -211,7 +215,8 @@ header img {
 /* Activities */
 
 #act-container {
-    height: 90vh;
+    height: auto;
+    scroll-snap-align: start;
 }
 
 .accordion-item {
