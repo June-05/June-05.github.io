@@ -8,11 +8,12 @@
 
 /* COLORS */
 :root {
-    --black:#00171f;
-    --dark-blue:#003459;
-    --blue:#007ea7;
-    --light-blue:#00a8e8;
-    --white:#ffffff;
+    --black: #00171f;
+    --dark-blue: #003459;
+    --blue: #007ea7;
+    --light-blue: #00a8e8;
+    --lighter-blue: rgba(0, 168, 232, 0.40);
+    --white: #ffffff;
     --surface-tint: rgba(0, 168, 232, 0.16);
     --shadow-blue: rgba(0, 52, 89, 0.15);
     --overlay-dark: rgba(0, 23, 31, 0.9);
@@ -50,7 +51,8 @@ h4 {
     color: var(--dark-blue);
 }
 
-p, li{
+p,
+li {
     font-family: var(--font-body);
     font-weight: 400;
     font-size: clamp(0.5rem, 1.5vw + 0.4rem, 1.2rem);
@@ -124,7 +126,6 @@ header {
 }
 
 header a {
-
     h3 {
         color: var(--white);
     }
@@ -171,17 +172,16 @@ header img {
 }
 
 @keyframes jumpInfinite {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
-
 
 /* About Me */
 #about-me {
@@ -192,10 +192,10 @@ header img {
     align-items: space-between;
 }
 
-    /* Uses the already exisiting carousel from the projects tab with a few modifications */
+/* Uses the already exisiting carousel from the projects tab with a few modifications */
 .carousel-item.flex-column {
     padding: 10vh 5vw 0 5vw;
-    width: 100%; 
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: baseline;
@@ -204,22 +204,57 @@ header img {
         padding: 2vh 2vw 2vh 1vw;
         height: auto;
         margin: 1vh 0;
-        border-left: 5px solid var(--light-blue); 
+        border-left: 5px solid var(--light-blue);
     }
-} 
+}
 
 /* Activities */
-.activity {
-    display: flex;
-    flex-direction: row;
-    align-items: top;
-    gap: 20px;
-    margin: 20px;
-    padding: 20px;
+
+#act-container {
+    height: 90vh;
+}
+
+.accordion-item {
+    label {
+        display: block;
+        padding: 10px;
+        background-color: var(--lighter-blue);
+    }
     border: 1px solid var(--blue);
     border-radius: 5px;
     box-shadow: 0 2px 5px var(--shadow-blue);
     background-color: var(--white);
+    margin: 20px;
+}
+
+.accordion input {
+    display: none;
+}
+
+.activity {
+    display: none;
+    button {
+        display: none;
+    }
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion input:checked ~ .activity {
+    display: flex;
+    button {
+        display: inline-block;
+    }
+    max-height: 80vh;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+}
+
+.activity {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
 }
 
 .activity img {
@@ -233,7 +268,7 @@ header img {
     position: relative;
     line-height: 1.5;
     padding-bottom: 3rem;
-    padding-left: 3rem;    
+    padding-left: 3rem;
 }
 
 .activity-details button,
@@ -247,7 +282,7 @@ header img {
     p {
         color: var(--white);
     }
-    
+
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -258,13 +293,13 @@ header img {
 .project-details button:hover,
 .project-details button:focus-visible {
     p {
-        color: var(--black);    
+        color: var(--black);
     }
     background-color: var(--blue);
 }
 
 /* Projects */
-.project-details .top{
+.project-details .top {
     bottom: 4rem;
 }
 
@@ -306,12 +341,11 @@ header img {
     padding: 0 10px;
 }
 
-    /* Carousel for Projects */
+/* Carousel for Projects */
 .carousel {
     grid-column: span 2;
 
     anchor-name: --tooltip-anchor;
-    
 
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -403,7 +437,6 @@ header img {
     /* IE and Edge */
     -ms-overflow-style: none;
 }
-
 
 /* Certificates */
 #cert-container {
