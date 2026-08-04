@@ -6,12 +6,24 @@
     scroll-padding-top: 10vh;
 }
 
+/* COLORS */
+:root {
+    --black:#00171f;
+    --dark-blue:#003459;
+    --blue:#007ea7;
+    --light-blue:#00a8e8;
+    --white:#ffffff;
+}
 
 /* FONTS */
 h1 {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-size: clamp(2rem, 4vw + 1rem, 4rem);
+}
+
+h1 {
+    margin: 10px 20px;
 }
 
 h2 {
@@ -68,12 +80,13 @@ p {
     text-align: left;
 }
 
-
+/* Main Container */
 body {
     top: 10vh;
     position: relative;
 }
 
+/* Header */
 header {
     font-size: 3vw;
     position: fixed;
@@ -84,12 +97,12 @@ header {
     top: 0;
     width: 100%;
     height: 10%;
-    background-color: #333;
+    background-color: var(--dark-blue);
     z-index: 100;
 }
 
 header a {
-    color: white;
+    color: var(--white);
     width: 100%;
     text-decoration: none;
     margin: 0 10px;
@@ -101,63 +114,76 @@ header img {
     object-fit: contain;
 }
 
-h1 {
-    margin: 10px 20px;
-}
-
-#cert-container {
+/* Landing Page */
+#landing-page {
+    height: 90vh;
+    width: 100%;
+    color: var(--black);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    align-items: bottom;
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: 2fr 5fr;
+    overflow: hidden;
+    background-color: var(--white);
 }
 
-.cert {
+#landing-page img {
+    object-fit: cover;
+    height: 80%;
+    max-width: 100%;
+    z-index: 5;
+    justify-self: end;
+}
+
+.introduction {
+    margin-top: 10%;
+}
+
+.introduction a {
+    width: 10vw;
+    position: absolute;
+    left: 50%;
+    top: 70vh;
+    animation: jumpInfinite 1.5s infinite;
+}
+
+@keyframes jumpInfinite {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* About Me */
+#about-me {
+    height: 90vh;
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    align-items: space-between;
+}
+
+    /* Uses the already exisiting carousel from the projects tab with a few modifications */
+.carousel-item.flex-column {
+    padding: 10vh 5vw 0 5vw;
+    width: 100%; 
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 1%;
-    justify-content: space-between;
-    cursor: pointer;
-}
+    justify-content: baseline;
 
-.cert:hover {
-    transform: scale(1.02);
-    transition: transform 0.2s ease;
-}
+    p {
+        padding: 2vh 2vw 2vh 1vw;
+        height: auto;
+        margin: 1vh 0;
+        border-left: 5px solid var(--light-blue); 
+    }
+} 
 
-.cert:focus {
-    transform: scale(1);
-    transition: transform 0.2s ease;
-}
-
-.cert:focus + .details {
-    display: block;
-    margin: 0 auto;
-}
-
-.details {
-    display: none;
-    position: fixed;
-    left: 10%;
-    top: 10%;
-    width: 80%;
-    height: 80%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 10;
-}
-
-.details a {
-    color: #00f;
-    text-decoration: underline;
-}
-
+/* Activities */
 .activity {
     display: flex;
     flex-direction: row;
@@ -197,6 +223,7 @@ h1 {
     cursor: pointer;
 }
 
+/* Projects */
 .project-details .top{
     bottom: 4rem;
 }
@@ -227,8 +254,7 @@ h1 {
     padding-left: 1rem;
 }
 
-
-
+    /* Carousel for Projects */
 .carousel {
     grid-column: span 2;
 
@@ -322,44 +348,58 @@ h1 {
     -ms-overflow-style: none;
 }
 
-#landing-page {
-    height: 90vh;
-    width: 100%;
 
+/* Certificates */
+#cert-container {
     display: grid;
-    grid-template-columns: 2fr 5fr;
-    border-bottom: 1px solid #ccc;
-    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: bottom;
+    gap: 20px;
+    padding: 20px;
 }
 
-#landing-page img {
-    object-fit: cover;
+.cert {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1%;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.cert:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+.cert:focus {
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+.cert:focus + .details {
+    display: block;
+    margin: 0 auto;
+}
+
+.details {
+    display: none;
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    width: 80%;
     height: 80%;
-    max-width: 100%;
-    z-index: 5;
-    justify-self: end;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 10;
 }
 
-.introduction {
-    margin-top: 10%;
+.details a {
+    color: #00f;
+    text-decoration: underline;
 }
 
-.introduction a {
-    width: 10vw;
-    position: absolute;
-    left: 50%;
-    top: 70vh;
-    animation: jumpInfinite 1.5s infinite;
-}
-
-@keyframes jumpInfinite {
-  0% {
-    margin-top: 0;
-  }
-  50% {
-    margin-top: 20px;
-  }
-  100% {
-    margin-top: 0;
-  }
-}
