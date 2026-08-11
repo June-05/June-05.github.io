@@ -11,6 +11,7 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" defer></script>
     </head>
 
     <body>
@@ -42,7 +43,7 @@
         </section>
 
         <section id="about-me">
-            <div class="carousel no-scrollbar">
+            <div class="carousel no-scrollbar text-carousel">
                 <ol class="carousel-media" role="list">
                     <li class="carousel-item flex-column">
                         <h2>Where It Started</h2>
@@ -80,12 +81,13 @@
                     </li>
                 </ol>
             </div>
+            
         </section>
 
         <section id="act-container">
             <div class="accordion">
                 <div class="accordion-item">
-                    <input type="checkbox" id="item1" checked />
+                    <input type="radio" name="act" id="item1" checked />
                     <label for="item1" class="accordion-header"
                         ><h4>
                             Activity 1.1 - Fashion Blog "-HTML TAG-"
@@ -122,7 +124,7 @@
 
             <div class="accordion">
                 <div class="accordion-item">
-                    <input type="checkbox" id="item2" />
+                    <input type="radio" name="act" id="item2" />
                     <label for="item2" class="accordion-header"
                         ><h4>
                             Activity 1.2 - Wine Festival Schedule "-HTML TAG-"
@@ -161,7 +163,7 @@
 
             <div class="accordion">
                 <div class="accordion-item">
-                    <input type="checkbox" id="item3" />
+                    <input type="radio" name="act" id="item3" />
                     <label for="item3" class="accordion-header"
                         ><h4>
                             Activity 2.1 - Davies Burger "-CSS TAG-"
@@ -199,7 +201,6 @@
         </section>
 
         <section id="projects">
-            
             <div id="proj-container">
                 <fieldset class="year-divider">
                     <legend><h1>2024</h1></legend>
@@ -299,6 +300,8 @@
                                     class="carousel-image"
                                     loading="lazy"
                                     decoding="async"
+                                    class="fullscreen-img"
+                                    onclick="toggleFullscreen(this)"
                                 />
                             </li>
                             <li class="carousel-item">
@@ -355,17 +358,41 @@
                             dual-purpose application that serves as a platform
                             for job discovery and guided upskilling.
                         </p>
-                        <h3>Features</h3>
-                        <ul>
-                            <li>Animated UI elements</li>
-                            <li>Fully responsive design</li>
-                            <li>Start to Finish Workflow</li>
-                        </ul>
+                        <div class="grid">
+                            <div>
+                                <h3>Features</h3>
+                                <ul>
+                                    <li>Animated UI elements</li>
+                                    <li>Fully responsive design</li>
+                                    <li>Start to Finish Workflow</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Co-Developers</h3>
+                                <ul class="no-design">
+                                    <li>
+                                        <a href="#" target="_blank"
+                                            >Cyrus Gabriel Macrohon
+                                            <img
+                                                src="./Assets/external-link-line.svg"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank"
+                                            >Drazen Nepa Jr.
+                                            <img
+                                                src="./Assets/external-link-line.svg"
+                                        /></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-details">
                         <h3>Details</h3>
                         <p>Project Timeline: September - November 2025</p>
                         <p>Technologies Used: Figma</p>
+
                         <a
                             href="https://www.figma.com/proto/uCsSbZrkTSMgM2eMP9kK3T/Group-9-BSIT1A-MACROHON-MANLA-NEPA?node-id=510-3364&p=f&viewport=800%2C421%2C0.18&t=CL1jtxoSWVKQL65O-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=510%3A3352&page-id=0%3A1"
                             target="_blank"
@@ -397,15 +424,6 @@
                     <h2>Java Certification</h2>
                 </div>
 
-                <div class="details">
-                    <a href="./java1.png" target="_blank"> Open Image </a>
-                    <p>
-                        Java Certification from Coursera, demonstrating
-                        proficiency in Java programming and software development
-                        principles.
-                    </p>
-                </div>
-
                 <div class="cert" tabindex="1">
                     <img
                         src="./Assets/coursera1.jpg"
@@ -413,13 +431,6 @@
                         width="100%"
                     />
                     <h2>AI for Everyone</h2>
-                </div>
-
-                <div class="details">
-                    <p>
-                        AI for Everyone from Coursera, providing a comprehensive
-                        introduction to the field of artificial intelligence.
-                    </p>
                 </div>
 
                 <div class="cert" tabindex="2">
@@ -431,14 +442,6 @@
                     <h2>Introduction to AI</h2>
                 </div>
 
-                <div class="details">
-                    <p>
-                        Introduction to AI from Coursera, providing a
-                        comprehensive introduction to the field of artificial
-                        intelligence.
-                    </p>
-                </div>
-
                 <div class="cert" tabindex="3">
                     <img
                         src="./Assets/coursera3.jpg"
@@ -446,14 +449,6 @@
                         width="100%"
                     />
                     <h2>Introduction to Generative AI</h2>
-                </div>
-
-                <div class="details">
-                    <p>
-                        Introduction to Generative AI from Coursera, providing a
-                        comprehensive introduction to the field of generative
-                        artificial intelligence.
-                    </p>
                 </div>
             </div>
         </section>

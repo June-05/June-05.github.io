@@ -17,7 +17,7 @@ html {
     --dark-blue: #003459;
     --blue: #007ea7;
     --light-blue: #00a8e8;
-    --lighter-blue: rgba(0, 168, 232, 0.40);
+    --lighter-blue: rgba(0, 168, 232, 0.4);
     --white: #ffffff;
     --surface-tint: rgba(0, 168, 232, 0.16);
     --shadow-blue: rgba(0, 52, 89, 0.15);
@@ -132,6 +132,7 @@ header {
 header a {
     h3 {
         color: var(--white);
+        font-size: clamp(0.8rem, 1.7vw + 0.85rem, 1.3rem);
     }
     width: 100%;
     text-decoration: none;
@@ -139,7 +140,7 @@ header a {
 }
 
 header img {
-    max-height: 10vh;
+    max-height: 9vh;
     width: auto;
     object-fit: contain;
 }
@@ -222,7 +223,7 @@ header img {
 /* Activities */
 
 #act-container {
-    min-height: calc(100vh - var(--header-height));
+    max-height: calc(100vh - var(--header-height));
     scroll-snap-align: start;
     scroll-snap-stop: always;
     scroll-margin-top: var(--header-height);
@@ -239,7 +240,7 @@ header img {
 .accordion-item {
     label {
         display: block;
-        padding: 10px;
+        padding: 5px;
         background-color: var(--lighter-blue);
     }
     border: 1px solid var(--blue);
@@ -326,6 +327,7 @@ header img {
 }
 
 .project {
+    height: 90vh;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
@@ -339,9 +341,24 @@ header img {
 }
 
 .project-desc {
-    padding: 20px;
+    padding: 0 20px;
     line-height: 1.5;
     padding-left: 1rem;
+}
+
+.project-desc .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.project-desc .no-design {
+    list-style: none;
+    padding-left: 0;
+
+    img {
+        width: clamp(0.9rem, 0.55vw + 0.82rem, 1.05rem);
+        aspect-ratio: 1/1;
+    }
 }
 
 .project-details {
@@ -405,6 +422,16 @@ header img {
     /* scroll-marker-group: after; */
 }
 
+.text-carousel {
+    height: auto;
+
+    .carousel-media {
+        height: auto;
+    }
+
+    
+}
+
 .carousel [role="list"] {
     padding: 0;
     list-style: none;
@@ -412,11 +439,12 @@ header img {
 
 .carousel-media {
     display: flex;
+    height: 100%;
 }
 
 .carousel-item {
     padding: 0 30px;
-    height: 40vh;
+    height: 100%;
     flex-shrink: 0;
     scroll-snap-align: center;
     scroll-snap-stop: always;
@@ -460,6 +488,18 @@ header img {
     -ms-overflow-style: none;
 }
 
+/* Change the cursor to a magnifying glass over the image */
+.fullscreen-img {
+    max-width: 100%;
+    cursor: zoom-in;
+}
+
+/* Optional: Prevent black bars by telling the browser how to fit the image */
+.fullscreen-img:fullscreen {
+    object-fit: contain;
+    background-color: black;
+}
+
 /* Certificates */
 #cert-container {
     display: grid;
@@ -486,31 +526,76 @@ header img {
     transition: transform 0.2s ease;
 }
 
-.cert:focus {
-    transform: scale(1);
-    transition: transform 0.2s ease;
-}
+/* MOBILE VIEW */
+@media (width < 768px) {
+    h1 {
+        font-weight: 1000;
+        font-size: clamp(3.4rem, 6vw + 1.8rem, 6.6rem); 
+    }
 
-.cert:focus + .details {
-    display: block;
-    margin: 0 auto;
-}
+    h2 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: clamp(1.35rem, 2.4vw + 0.85rem, 2.5rem);
+        color: var(--dark-blue);
+    }
 
-.details {
-    display: none;
-    position: fixed;
-    left: 10%;
-    top: 10%;
-    width: 80%;
-    height: 80%;
-    background-color: var(--overlay-dark);
-    color: var(--white);
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 10;
-}
+    h3 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: clamp(1.1rem, 1.7vw + 0.85rem, 1.75rem);
+        color: var(--dark-blue);
+    }
 
-.details a {
-    color: var(--light-blue);
-    text-decoration: underline;
+    h4 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: clamp(1rem, 1vw + 0.8rem, 1.35rem);
+        color: var(--dark-blue);
+    }
+
+    p,
+    li {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: clamp(0.9rem, 0.55vw + 0.82rem, 1.05rem);
+        color: var(--black);
+    }
+
+    header {
+        width: 100vw;
+        display: none;
+    }
+
+    html {
+        scroll-snap-type: none;
+    }
+
+    #landing-page {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+        overflow: hidden;
+        img {
+            z-index: 0;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    #about-me {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        z-index: 1;
+    }
 }
