@@ -437,6 +437,11 @@ header img {
         outline-color: var(--light-blue);
     }
 
+    &::scroll-button(*):disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
     /* scroll-marker-group: after; */
 }
 
@@ -556,6 +561,8 @@ header img {
 
 /* MOBILE VIEW */
 @media (width < 768px) {
+
+    /* FONTS */
     h1 {
         font-weight: 1000;
         font-size: clamp(3.4rem, 6vw + 1.8rem, 6.6rem); 
@@ -590,6 +597,7 @@ header img {
         color: var(--black);
     }
 
+    /* HEADER */
     header {
         top: 0;
         left: 0;
@@ -664,10 +672,17 @@ header img {
         display: flex;
     }
 
+        /* CHANGE HAMBURGER MENU ICON COLOR */
+    header button img { 
+        filter: brightness(0) invert(1);
+    }
+
+    /* DISABLE SCROLL SNAP */
     html {
         scroll-snap-type: none;
     }
 
+    /* LANDING PAGE */
     #landing-page {
         display: flex;
         position: relative;
@@ -686,10 +701,6 @@ header img {
         img {
             display: none;
         }
-    }
-
-    header button img {
-        filter: brightness(0) invert(1);
     }
 
     .introduction {
@@ -755,6 +766,7 @@ header img {
         height: 2.6rem;
     }
 
+    /* ABOUT ME */
     #about-me {
         min-height: auto;
         display: flex;
@@ -789,6 +801,7 @@ header img {
         }
     }
 
+    /* ACTIVITIES */
     #act-container {
         max-height: fit-content;
         padding: 1rem;
@@ -798,6 +811,34 @@ header img {
         max-height: 65vh;
     }
 
+    .activity {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        .activity-details {
+            text-align: center;
+            padding-left: 0;
+
+            li {
+                text-align: left;
+            }
+
+            button {
+                position: relative;
+                bottom: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        img {
+            width: 80%;
+            object-fit: contain;
+        }
+    }
+
+    /* PROJECTS */
     .project {
         height: auto;
         min-height: auto;
@@ -860,33 +901,6 @@ header img {
 
     .year-divider legend {
         padding: 0 0.75rem;
-    }
-
-    .activity {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
-
-        .activity-details {
-            text-align: center;
-            padding-left: 0;
-
-            li {
-                text-align: left;
-            }
-
-            button {
-                position: relative;
-                bottom: 0;
-                margin-top: 1rem;
-            }
-        }
-
-        img {
-            width: 80%;
-            object-fit: contain;
-        }
     }
 
     .grid {
