@@ -528,6 +528,7 @@ header img {
 }
 
 .cert {
+    position: relative;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--blue);
@@ -537,6 +538,15 @@ header img {
     padding: 1%;
     justify-content: space-between;
     cursor: pointer;
+}
+
+.cert a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .cert:hover {
